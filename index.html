@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SAMET CICIK | Premiere Video Editing Specialist</title>
+    <link rel="icon" type="image/png" href="ikon.png">
+    <!-- SEO -->
+    <meta name="description" content="Professional video editing portfolio of Samet Cicik. High-retention short-form and long-form editing for creators and brands.">
+    <meta name="keywords" content="video editor, premiere pro, after effects, high retention, content creator, portfolio">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#00eefc",
+              "on-primary": "#003f43",
+              "surface": "#0a0a0a",
+              "surface-variant": "#1a1a1a",
+              "on-surface": "#ffffff",
+              "on-surface-variant": "#a3a3a3",
+              "outline": "#404040",
+              "primary-glow": "rgba(0, 238, 252, 0.15)",
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700;900&display=swap');
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(0, 238, 252, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 238, 252, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00eefc 0%, #0088ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00eefc;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00eefc;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden selection:bg-primary/30">
+
+<!-- Custom Cursor (Optional but Premium) -->
+<div id="custom-cursor" class="fixed w-8 h-8 pointer-events-none z-[100] border-2 border-primary rounded-full transition-transform duration-100 ease-out hidden md:block" style="transform: translate(-50%, -50%) scale(0.5);"></div>
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 py-6 px-10 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto flex justify-between items-center glass-card px-8 py-4 rounded-full">
+        <a href="#" class="text-2xl font-black tracking-tighter font-headline text-white group">
+            SAMET<span class="text-primary group-hover:text-white transition-colors">CICIK</span>
+        </a>
+        
+        <div class="hidden md:flex gap-12 items-center">
+            <a href="#work" class="nav-link relative font-headline font-bold uppercase text-sm tracking-widest text-on-surface hover:text-primary transition-colors">Work</a>
+            <a href="mailto:sametcicik404@gmail.com" class="bg-primary hover:bg-white text-on-primary hover:text-black px-6 py-2.5 rounded-full font-headline font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(0,238,252,0.2)]">
+                Let's Edit
+            </a>
+        </div>
+
+        <button class="md:hidden text-white" id="mobile-menu-btn">
+            <span class="material-symbols-outlined text-3xl">menu_open</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Video Modal Container -->
+<div id="video-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500 scale-95 bg-surface/90 backdrop-blur-2xl">
+    <button id="close-modal" class="absolute top-10 right-10 text-white hover:text-primary transition-colors z-[110]">
+        <span class="material-symbols-outlined text-5xl">close</span>
+    </button>
+    
+    <div class="relative w-full max-w-5xl aspect-video rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(0,238,252,0.1)] border border-white/10 glass-card">
+        <iframe id="modal-iframe" src="" class="w-full h-full border-none" allow="autoplay; fullscreen" loading="lazy"></iframe>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center p-6 bg-surface overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-30">
+        <div class="absolute top-20 left-10 w-96 h-96 bg-primary/20 blur-[120px] rounded-full animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full animate-pulse-slow"></div>
+    </div>
+
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/80 to-surface z-10"></div>
+        <img src="hero_studio_1774791999482.png" alt="Creative Studio" class="w-full h-full object-cover scale-105 animate-[kenburns_40s_ease-in-out_infinite] opacity-40 grayscale"/>
+    </div>
+
+    <div class="relative z-20 text-center max-w-6xl mx-auto">
+        <div class="mb-6 inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2 rounded-full backdrop-blur-md">
+            <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+            <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-white">Open for New Collaborations</span>
+        </div>
+        
+        <h1 class="font-headline font-black text-6xl md:text-9xl text-white leading-[0.85] tracking-tighter mb-8 italic">
+            CRAFTING <span class="gradient-text not-italic">ATTENTION.</span>
+        </h1>
+        
+        <p class="text-on-surface-variant text-lg md:text-2xl max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+            I don't just cut clips. I engineer retention through high-energy pacing, emotional story arcs, and pixel-perfect post-production.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="#work" class="group relative w-full sm:w-auto bg-primary px-12 py-5 rounded-xl font-headline font-bold uppercase tracking-widest text-on-primary transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(0,238,252,0.3)]">
+                Browse Selected Works
+            </a>
+            <a href="#about" class="w-full sm:w-auto glass-card border border-white/10 px-12 py-5 rounded-xl font-headline font-bold uppercase tracking-widest text-white hover:bg-white/10 transition-all duration-300">
+                The Philosophy
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-500">Scroll</span>
+        <div class="w-px h-16 bg-gradient-to-b from-primary to-transparent"></div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="py-12 border-y border-white/5 bg-surface-variant">
+    <div class="max-w-7xl mx-auto px-10">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div class="reveal-on-scroll">
+                <p class="text-4xl md:text-6xl font-headline font-black text-white">50M+</p>
+                <p class="text-xs uppercase tracking-widest text-primary font-bold mt-2">Combined Views</p>
+            </div>
+            <div class="reveal-on-scroll">
+                <p class="text-4xl md:text-6xl font-headline font-black text-white">200+</p>
+                <p class="text-xs uppercase tracking-widest text-primary font-bold mt-2">Projects Delivered</p>
+            </div>
+            <div class="reveal-on-scroll">
+                <p class="text-4xl md:text-6xl font-headline font-black text-white">40%</p>
+                <p class="text-xs uppercase tracking-widest text-primary font-bold mt-2">Retention Growth</p>
+            </div>
+            <div class="reveal-on-scroll">
+                <p class="text-4xl md:text-6xl font-headline font-black text-white">100%</p>
+                <p class="text-xs uppercase tracking-widest text-primary font-bold mt-2">Auteur Style</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="py-40 px-6 sm:px-10 bg-surface" id="work">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+            <div class="reveal-on-scroll">
+                <h2 class="font-headline text-5xl md:text-8xl font-black text-white italic tracking-tighter uppercase">Selected Works</h2>
+                <div class="h-2 w-32 bg-primary mt-4"></div>
+            </div>
+            <div class="flex gap-4 p-1.5 bg-surface-variant rounded-2xl border border-white/5 reveal-on-scroll">
+                <button id="btn-short" class="filter-btn px-8 py-3 rounded-xl bg-primary text-on-primary font-bold text-sm tracking-widest uppercase transition-all duration-300">Short Form</button>
+                <button id="btn-long" class="filter-btn px-8 py-3 rounded-xl text-neutral-400 font-bold text-sm tracking-widest uppercase hover:text-white transition-all duration-300">Long Form</button>
+            </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Short Form (Vertical) - 10 New Videos -->
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1KJmxHJEFj5-8JPnm7iuwWmOx_Ln8lboD/preview">
+                <img src="thumb_1.png" alt="Edit 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1ODqOqLFU0anrfoxFXJ99ryo2aPjT5Oub/preview">
+                <img src="thumb_2.png" alt="Edit 2" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1SKDHPRA1nUSY_5HJvRk4EiREfOUbl9KZ/preview">
+                <img src="thumb_3.png" alt="Edit 3" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1AZQi3mILgRF6TV0dXiorMTwOeT6drcn_/preview">
+                <img src="thumb_4.png" alt="Edit 4" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1FBPYPu4pT2_EiK0qJ510h3AKFZNWEEB_/preview">
+                <img src="thumb_5.png" alt="Edit 5" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1EX5V-88gnBGuCSzGPfgw4KZEGnEs59FN/preview">
+                <img src="thumb_6.png" alt="Edit 6" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1NGc53b0sTJLndQSJWrIZXb48oE-Cu1FL/preview">
+                <img src="thumb_7.png" alt="Edit 7" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/13JbBYqV5xBHAv5OLa0DoezZqp0hdVPrs/preview">
+                <img src="thumb_8.png" alt="Edit 8" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/12v5-3cysn1biVCbbM0Q9WpNdRZvP_4J8/preview">
+                <img src="thumb_9.png" alt="Edit 9" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/187PKFTyhAbffSRA2e0twfkxCE0DsTbRy/preview">
+                <img src="thumb_10.png" alt="Edit 10" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item short-form group relative aspect-[9/16] overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1P7S4SHacpejZFzdArIVQMQ0upOdGom2O/preview">
+                <img src="thumb_11.png" alt="Edit 11" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Long Form (Horizontal) - 3 New Videos -->
+            <div class="portfolio-item long-form hidden group relative aspect-video md:col-span-2 overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1ZqNj5CbLX060rBmlq0EluKaUxuDuh7xh/preview">
+                <img src="thumb_long_1.png" alt="Documentary Edit 1" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-20 h-20 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-4xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 p-12 pointer-events-none">
+                    <h3 class="font-headline text-3xl font-bold text-white mb-2 uppercase italic tracking-tighter">Ioannis Skretas</h3>
+                    <p class="text-primary text-xs font-bold uppercase tracking-widest">Psychological Storytelling</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item long-form hidden group relative aspect-video overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1Tjc7NT4W5khFW8EfRUUMMhBq6SJmTXC6/preview">
+                <img src="thumb_long_2.png" alt="Milestone Edit" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-16 h-16 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-3xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 p-10 pointer-events-none">
+                    <h3 class="font-headline text-2xl font-bold text-white mb-2 uppercase italic tracking-tighter">MC Milestone</h3>
+                    <p class="text-primary text-xs font-bold uppercase tracking-widest">Brand Narrative</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item long-form hidden group relative aspect-video md:col-span-3 overflow-hidden rounded-3xl bg-neutral-900 cursor-pointer reveal-on-scroll video-trigger"
+                 data-video-url="https://drive.google.com/file/d/1tUg8vVuKd5zp0MZyQU02e-hjSP7I1sz5/preview">
+                <img src="thumb_long_3.png" alt="Peter Intro" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
+                    <div class="w-20 h-20 bg-primary/20 backdrop-blur-md rounded-full flex items-center justify-center border border-primary/50 text-primary">
+                        <span class="material-symbols-outlined text-4xl fill-[1]">play_arrow</span>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 p-12 pointer-events-none">
+                    <h3 class="font-headline text-3xl font-bold text-white mb-2 uppercase italic tracking-tighter">Peter Ep 17 Intro</h3>
+                    <p class="text-primary text-xs font-bold uppercase tracking-widest">Episodic Post-Production</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-40 bg-surface" id="contact">
+    <div class="max-w-4xl mx-auto px-6 text-center reveal-on-scroll">
+        <h2 class="font-headline text-5xl md:text-8xl font-black text-white mb-8 italic tracking-tighter uppercase">STOP SCROLLING. <br/><span class="gradient-text not-italic uppercase">START SCALING.</span></h2>
+        <a href="mailto:sametcicik404@gmail.com" class="inline-block bg-primary text-on-primary font-headline font-bold uppercase tracking-widest px-12 py-6 rounded-xl hover:bg-white transition-all duration-300 shadow-[0_0_30px_rgba(0,238,252,0.2)]">Let's Edit</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-20 border-t border-white/5 bg-surface relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
+        <div class="text-center md:text-left">
+            <a href="#" class="text-2xl font-black tracking-tighter font-headline text-white mb-4 block">
+                SAMET<span class="text-primary">CICIK</span>
+            </a>
+            <p class="text-on-surface-variant text-xs font-bold tracking-[0.3em] uppercase opacity-60">© 2026 Auteur Visuals. All Rights Reserved.</p>
+        </div>
+        
+        <div class="flex gap-10">
+            <a href="https://www.upwork.com/freelancers/~013fd8ff4d81ea046d" target="_blank" class="text-on-surface-variant hover:text-primary transition-colors uppercase text-xs font-bold tracking-widest">Upwork</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.style.display = 'block';
+    });
+
+    // Cursor Scaling on Links
+    document.querySelectorAll('a, button, .cursor-pointer').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
+        el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(0.5)');
+    });
+
+    // Reveal on Scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            nav.classList.add('py-4', 'bg-surface/80', 'backdrop-blur-xl');
+            nav.classList.remove('py-6');
+        } else {
+            nav.classList.remove('py-4', 'bg-surface/80', 'backdrop-blur-xl');
+            nav.classList.add('py-6');
+        }
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('video-modal');
+    const modalIframe = document.getElementById('modal-iframe');
+    const closeModal = document.getElementById('close-modal');
+    const triggers = document.querySelectorAll('.video-trigger');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const videoUrl = trigger.getAttribute('data-video-url');
+            if (videoUrl) {
+                // For Google Drive, ensure autoplay is active
+                const finalUrl = videoUrl.includes('?') ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
+                modalIframe.src = finalUrl;
+                modal.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                modal.classList.add('opacity-100', 'scale-100');
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            }
+        });
+    });
+
+    const closeHandler = () => {
+        modal.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+        modal.classList.remove('opacity-100', 'scale-100');
+        setTimeout(() => {
+            modalIframe.src = ''; // Stop video playback
+        }, 500);
+        document.body.style.overflow = 'auto';
+    };
+
+    closeModal.addEventListener('click', closeHandler);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeHandler();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeHandler();
+    });
+
+    // Portfolio Filtering Logic
+    const btnShort = document.getElementById('btn-short');
+    const btnLong = document.getElementById('btn-long');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    const filterPortfolio = (category) => {
+        portfolioItems.forEach(item => {
+            if (item.classList.contains(category)) {
+                item.classList.remove('hidden');
+                setTimeout(() => item.classList.add('opacity-100', 'scale-100'), 10);
+            } else {
+                item.classList.add('hidden');
+                item.classList.remove('opacity-100', 'scale-100');
+            }
+        });
+
+        // Update Button States
+        if (category === 'short-form') {
+            btnShort.classList.add('bg-primary', 'text-on-primary');
+            btnShort.classList.remove('text-neutral-400');
+            btnLong.classList.remove('bg-primary', 'text-on-primary');
+            btnLong.classList.add('text-neutral-400');
+        } else {
+            btnLong.classList.add('bg-primary', 'text-on-primary');
+            btnLong.classList.remove('text-neutral-400');
+            btnShort.classList.remove('bg-primary', 'text-on-primary');
+            btnShort.classList.add('text-neutral-400');
+        }
+    };
+
+    btnShort.addEventListener('click', () => filterPortfolio('short-form'));
+    btnLong.addEventListener('click', () => filterPortfolio('long-form'));
+</script>
+
+</body>
+</html>
